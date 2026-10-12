@@ -1,0 +1,64 @@
+// Solo variables y mixins: se inyecta en cada componente, no debe emitir CSS.
+$ink: #121211;
+$ink-2: #1d1d1b;
+$ink-3: #2a2a27;
+$paper: #f4f1ea;
+$paper-2: #e9e4d8;
+$lime: #c3f22f;
+$lime-deep: #9fcc12;
+$muted: #8d8a80;
+$danger: #ff6b4a;
+$wa: #25d366;
+
+$font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+$font-serif: 'Instrument Serif', Georgia, serif;
+$font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+$radius: 22px;
+$radius-sm: 14px;
+$gutter: clamp(16px, 4vw, 48px);
+$max: 1280px;
+
+$bp-sm: 560px;
+$bp-md: 820px;
+$bp-lg: 1100px;
+
+@mixin up($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $gutter;
+}
+
+@mixin eyebrow {
+  font-family: $font-body;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@mixin display($min: 2.6rem, $max: 6.4rem) {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: clamp(#{$min}, 9vw, #{$max});
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
